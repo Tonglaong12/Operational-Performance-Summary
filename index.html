@@ -7,13 +7,13 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&family=Libre+Baskerville&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4f4f5;--card:#fff;--tx:#1d1d20;--mut:#6b6b73;--bd:#dcdce0;--ac:#e1251b;--acx:#fff;--ph:#efeff1;--ok:#1b8a3c;
+:root{--bg:#eef1f6;--card:#fff;--tx:#141b29;--mut:#667085;--bd:#d9dee8;--ac:#ef2b2d;--acx:#fff;--ph:#eef1f6;--ok:#1b8a3c;--glow:rgba(239,43,45,.07);--grid:rgba(20,27,41,.04);
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171212;--card:#201a1a;--tx:#f1eaea;--mut:#a39898;--bd:#3a3030;--ac:#e0262b;--acx:#fff;--ph:#2a2222;--ok:#4cc16f;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#171212;--card:#201a1a;--tx:#f1eaea;--mut:#a39898;--bd:#3a3030;--ac:#e0262b;--acx:#fff;--ph:#2a2222;--ok:#4cc16f;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e131c;--card:#161d2b;--tx:#eef1f6;--mut:#9aa4b5;--bd:#2a3446;--ac:#ef2b2d;--acx:#fff;--ph:#1d2636;--ok:#4cc16f;--glow:rgba(239,43,45,.17);--grid:rgba(255,255,255,.03);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e131c;--card:#161d2b;--tx:#eef1f6;--mut:#9aa4b5;--bd:#2a3446;--ac:#ef2b2d;--acx:#fff;--ph:#1d2636;--ok:#4cc16f;--glow:rgba(239,43,45,.17);--grid:rgba(255,255,255,.03);color-scheme:dark}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 'Sarabun',system-ui,-apple-system,'Noto Sans Thai',sans-serif}
+body{margin:0;background:radial-gradient(ellipse 70% 55% at 12% 18%,var(--glow),transparent 70%),linear-gradient(var(--grid) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/48px 48px,var(--bg);background-attachment:fixed;color:var(--tx);font:16px/1.5 'Sarabun',system-ui,-apple-system,'Noto Sans Thai',sans-serif}
 #top{background:var(--card);border-bottom:3px solid var(--ac);padding:10px 14px;display:flex;align-items:center;gap:12px}
 #top img{height:52px;background:#fff;border-radius:4px;padding:2px}
 #top b{display:block;line-height:1.2}#top small{color:var(--mut)}
@@ -34,17 +34,20 @@ button.dg{color:var(--ac)}
 .item:first-of-type{border-top:0}
 .chip{font-size:12px;padding:1px 8px;border-radius:10px;border:1px solid var(--bd);color:var(--mut)}.chip.ok{color:var(--ok);border-color:var(--ok)}
 .mut{color:var(--mut);font-size:14px}
-body::before,body::after{content:"";position:fixed;border-radius:50%;background:#e0262b;opacity:.13;pointer-events:none}
-body::before{width:230px;height:230px;top:-95px;right:-75px}body::after{width:180px;height:180px;bottom:-75px;left:-65px}
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:4px;background:var(--ac);z-index:60;pointer-events:none}
 main,#top{position:relative;z-index:1}
 #tg{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));right:10px;z-index:5;display:flex;border-radius:16px;overflow:hidden;border:1px solid var(--ac)}
 #tg button{border:0;border-radius:0;padding:3px 10px;background:#fff;color:#000}#tg button.on{background:var(--ac);color:#fff}
 .hm{min-height:78vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px}
 .hm img{width:min(80vw,360px);height:auto;background:#fff;border-radius:10px;padding:5px}
-.hm h1{font:600 clamp(24px,7vw,44px)/1.4 'Sarabun',system-ui,'Noto Sans Thai',sans-serif;letter-spacing:.03em;color:#7d7070;margin:6px 0}
+.hm h1{font:600 clamp(24px,7vw,44px)/1.4 'Sarabun',system-ui,'Noto Sans Thai',sans-serif;letter-spacing:.03em;color:var(--tx);margin:6px 0}
 .hm hr{width:min(100%,520px);border:0;border-top:1px solid var(--bd);margin:0}
 .seg2{display:flex;border:1px solid var(--bd);border-radius:10px;overflow:hidden}.seg2 button{border:0;border-radius:0;padding:8px 20px;background:var(--card)}.seg2 button.on{background:var(--ac);color:var(--acx);font-weight:600}
 .prow{display:grid;grid-template-columns:48% 1fr;gap:10px;margin-bottom:12px}.prow .ph{aspect-ratio:auto}.prow .ph img{height:auto;object-fit:contain}.prow textarea{min-height:100px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.chip2{display:inline-flex;align-items:center;border:1px solid var(--bd);border-radius:14px;padding:1px 2px 1px 10px;font-size:14px}.chip2 button{border:0;background:none;color:var(--ac);padding:0 8px;font-size:15px}
+.pms button.tip{position:relative}
+.pms button.tip:hover::after,.pms button.tip:focus-visible::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);white-space:nowrap;background:var(--tx);color:var(--bg);font-size:13px;font-weight:400;padding:5px 10px;border-radius:8px;z-index:20;pointer-events:none}
+.pms.many button{min-width:0;padding:12px 14px;font-size:15px}
 .pms{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:640px}
 .pms button{min-width:112px;padding:20px 22px;border-radius:14px;font-weight:700;font-size:18px}
 .pms .add{border-style:dashed;color:var(--mut)}.pms .x{min-width:0;padding:4px 8px;font-size:13px;border-radius:8px}
@@ -90,13 +93,19 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const toast=t=>{const e=$('#toast');e.textContent=t;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',2400)};
 const uid_=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
-const LA={};const bu=id=>LA[id]||(window.__LOCAL&&(LA[id]=JSON.parse(localStorage.getItem('asset:'+id)||'null')))||'/_blob/'+id;
+const LA={};const bu=id=>LA[id]||(window.__PH&&window.__PH(id))||(window.__LOCAL&&(LA[id]=JSON.parse(localStorage.getItem('asset:'+id)||'null')))||'/_blob/'+id;
+const DESC={ASD:'Aspirating Smoke Detector',FSCP:'Fire System Control Panel'};
+const CAT={"UPS":{"AIR":{"CITEC":["ECD70"]},"ATS":{"APC":["AP4424A"],"EATON":["EATS16N"],"SOCOMEC":["ATySp"]},"Battery":{"Ablerex":["BATTERY MONITORING","Enerbatt 3G"],"APC":["RT192V RM Battery"],"PILOT":["PBAT-Gate XG6 4CG"],"SACRED SUN":["SP12-200 (12V200AH)"],"SAMSUNG":["136S1P"],"VISION":["6FM134-X FR","6FM200H-X FR"]},"Central":{"MAX BRIGHT":["HP400"]},"Electrical":{"Distribution":["Distribution Board"],"ELECTRIC SYSTEM":["ELECTRIC SYSTEM"],"Electrical":["Electrical systems"],"FUJI SMBE":["W700 H1300 D300","W1010 H2230 D560"],"UNITED":["AC/DB","BYPASS-A","BYPASS-B","CB BOX-150A","SDB-150A"]},"Generator":{"FG Wilson":["P6005P"],"OLYMPIAN":["94A02449-80"]},"HDMI":{"Sync Box":["Sync Control Box"]},"MDB":{"MDB":["ATS 100A","MDB"]},"PDU":{"Ablerex":["PM3804107T2-75KVA","PM3816122T2-225KVA"],"Schneider":["100A","200A","PMM-150KVA"]},"Rack":{"G-NET":["Rack-G-NET"],"IBM":["Rack-IBM"]},"Rack PDU":{"APC":["AP8853"],"Schneider":["EPDU1132M"]},"STS":{"EMERSON":["STS"]},"Sync":{"EATON":["Sync Control"]},"Thermo Scan":{"Thermo Scan":["Thermo Scan"]},"UPM":{"EATON":["UPM-25KW/UPS93PR"]},"UPS":{"Ablerex":["Ablerex EVO-1KVA","Ablerex EVO-2KVA","MP3000RT","MSII 6000","MSII 6000RT-6KVA","MSII 8000","MSII 10000","MSII 10000RT","RS3000"],"APC":["APC-160KVA","Galaxy VS40kW-40KVA","MGE Galaxy5000-100KV","SRVPM10KRI-10KVA","SURT15KRMXLI-15KVA","SURT20KRMXLI-20KVA"],"BORRI":["B9000FXS-80 KVA","B9000FXS-100","B9000FXS-125KVA","B9000FXS-160KVA","B9000FXS-300KVA","B9600FXS-500KVA"],"EATON":["5V-650VA","9E20Ki-20KVA","9E-6Ki-6KVA","9E-6KVA","9E-10Ki-10KVA","9E-10KVA","9E-15KVA","9PX-6KVA","9PX-11KVA","9SX3000I-3KVA","9SX3000IR-3KVA","91PS-30KVA","93E XL-15KVA","93E XL-40KVA","93E XL-60KVA","93E-10KVA","93E-15KVA","93E-20KVA","93E-30KVA","93E-40KVA","93E-60KVA","93E-80KVA","93E-160KVA","93E-200KVA","93E-HE-100KVA","93E-HE-120KVA","93E-XL-40KVA","93EXL-10KVA","93EXL-15KVA","93EXL-20KVA","93PM-30KVA","93PM-40KVA","93PR T-15KVA","93PR-100KVA","93PR-125-MBS (75KVA)","93PR-150KVA","93PR-200KVA","93PR-240KVA","93PR-(Frame 75KVA)","93PR-(Frame 600KVA)","93T-15KVA","93T-30KVA","93T-40KVA","93T-60KVA","9155-10KVA","9355-15KVA","9355-20 KVA","9355-20KVA","9355-30KVA","9355-40KVA","9390-40KVA","9390-60KVA","9390-80KVA","9395-225","9395-300","9395-450KVA","BLADE-12","DXRT 10Ki-10KVA","E Series DX-20","E Series DX-30","E Series DX-15000","E-Series DX-40KVA","Eaton DX-RT 10kVA","PW9390-60","PW9395-275","PW9395-300","PW9395-450"],"EMERSON":["70-NET-10KVA"],"Energys":["Enterprise 3EC-10KVA"],"GE":["LP6-11/6KVA","LP10-11/10KVA","LP20-33/20KVA"],"LIEBERT":["EXS-20KVA","ITA-6KVA","NXC-40KVA"],"MGE":["COMET EX RT-7","EX11RT-11KVA","Galaxy 3500-20KVA"],"Powercom":["ONL-6250-LCD 6.25KVA"],"RITTAL":["PMC 200-250KVA"],"SOCOMEC":["DELPHYS MX elite-300","EGYS-DBII 6000","MASTERYS GP4-100KVA"],"SYNDOME":["HE-COMBO-10KVA","HE-RT-6KVA"],"VERTIV":["EXM2-100KVA","FP-50Z-20KVA","GXT5-3000IRT2UXL","ITA2-10KVA","ITA2-30KVA","ITA-10KVA","Liebert EXS-10KVA","Liebert ITA2-20KVA"]}},"F&S":{"ACCESS":{"ACCESS":["ACCESS CONTROL SYSTE"],"BOSCH":["ACC","ACCESS EASY CONTROL","ADC-22938","AEC","APC-AEC21-UPS1"],"Chiyu":["Warp3G"],"HID":["ACCESS"],"HIKVISION":["DS-K1T341AMF","DS-K1T804BMF","DS-K1201AMF"],"HIP":["CI690S(10000)","CI691S","Ci806u","CI809U","CIROL","CMI681S"],"NITGEN":["eNBioAccess-T9"],"TAFF":["CRU67CL-FO-LAN","CRU-67"],"Warp":["BF-603MW","Warp3GMV","Warp3MV"],"ZkTeco":["MultiBio 800-H"]},"ASD":{"Securiton":["ASD535-3","ASD 535-4","ASD-532"],"Simplex":["4098-VEP-A00-1P","4098-VEP-A00-P"]},"BAS":{"Honeywell":["BAS"]},"BMS":{"DELTA":["DELTA Control"],"JOHNSON":["BMS System"]},"CCTV":{"AXIS":["AXIS 5013-111","Axis P3375-LV","P1455-LE"],"BOSCH":["NWC-0495 Dinion XF"],"CCTV":["CCTV Camera"],"Dahua":["NVR410845"],"DELL":["CCTV Computer","R750"],"DIUS TECH":["HD-AHD-DVR"],"GANZ":["D16H-DVD","DR-4FX1","NR8-8M72","NR8HL","NR-4M62","ZN8-N4NFN4"],"GKB":["D34631"],"HIKVISION":["DS-2CD2721G0-I","DS-7608NXI-K2","DS-7608NXI-K2/8P","DS-7708NXI-K4/8P","DS-9632NI-I8","HIK-DS-2CD2755FWD-IZ","IPCAMDOME2MP"],"MULTI VISION":["CCTV"],"Tiandy":["TND-TC-R3210"]},"CO2":{"KIDDE":["FM-200"]},"DCIM":{"EDAtec":["ED-IPC3600"]},"Emergency Light":{"MAX BRIGHT":["CP04AD","MB 369"],"SUNNY":["MCU206NC3","SAU 235 DH3","SUNNY"]},"EMS":{"Honeywell":["WEB-8025"]},"Exit Light":{"MAX BRIGHT":["EXB 303"]},"Fire":{"BlazeCut":["T-Series"],"MIRCOM":["FA-101U"],"Notifier":["NFS-320"]},"Fire Alarm":{"EDWARDS":["FIRE SHIELD"],"EST":["EST3"],"Fire Alarm":["GST-M200"],"KIDDE":["AEGIS-PHX"],"NOHMI":["RPV-AAW10","RPV-AAW20"],"Notifier":["NFS2-3030","NFS2-3030/FK-5-1-12","NFS-320E","SFP-5UD","SFP-10UD","SFP-2402E"],"Securiton":["B9-SCP2020"]},"Fire Suppression":{"FIKE":["SHP-PRO"],"Janus":["JFC-C1"],"KIDDE":["AEGIS","AEGIS / NOVEC 1230"],"Notifier":["NFS-3030","NOVEC 1230","RP-2002E / FM200","RP-2002E/FK-5-1-12","RP-2002E/IG-100","RP-2002E/NC-1230"],"Notifier/NOVEC":["RP-2002E"],"NOTIFIER/SIEX":["NFS2 3030","RP-2002/NC-1230"]},"Fire System":{"KIDDE":["KIDDE"]},"FK-5-1-12":{"Notifier":["RP-2002 E"]},"FM-200":{"CADDX":["NX-8"],"FIKE":["CHEETAH","CHEETAH XI","DUPONT"],"KIDDE":["SCORPIO"],"NISSIN":["NS10AF"],"Notifier":["FCP 10 Zone","RP2002","RP2002E","RP-1002","RP-2002"],"RICHMOND":["RICHMOND"],"อื่นๆ":["Fire Extinguisher"]},"Gas Detection":{"Xtralis":["XCL"]},"Mimic":{"Mimic Panel":["Mimic Panel"]},"Netbotz":{"Net Botz570":["AP9465"]},"Network":{"HIKVISION":["DS-7716NI-K4/16P"]},"Nitrogen":{"NOHMI":["NOHMI"],"SIEX":["IG-100"]},"Non CFC":{"FIREMAN":["BF2000"]},"NOVEC":{"FENWAL & KIDDE":["2320"],"Notifier":["RP-2002E"],"SIEX":["NC1230"]},"OFF GAS":{"Xtralis":["LT-CTR-SML"]},"OTHER":{"Automatic Door":["Automatic Door"],"Cable system":["Cable system"],"Cleaning job":["Cleaning job"],"EMERGENCY LIGHT":["EMERGENCY LIGHT"],"Panduit":["Panduit"]},"Pre-Action":{"Pre-Action":["PRE-ACTION"]},"PYROGEN":{"KIDDE":["AEGIS"],"PYROGEN":["EXA"]},"Remote":{"SIEX":["227 CMC"]},"SMS":{"Connect PLUS":["J1000"]},"Software":{"VSM4":["VSM4"]},"TV":{"SONY":["KLV-40BX450"]},"VESDA":{"Securiton":["SecuriSmoke ASD"],"STRATOS":["MICRA 25"],"Xtralis":["DESC-SCAN-2","ECO-D-B-11","VEP-A00-1P","VEP-A00-1P-UL","VEP-A00-P","VEP-A00-P-UL","VEP-A10-1P","VEP-A10-P","VEP-A10-P-UL","VES-A00-P","VES-A10-P","VEU-A00","VEU-A00-P","VEU-A10","VLC-500","VLC-505","VLC-505VN","VLF-250-02","VLP-000","VLP-002","VLP-012","VLP-400","VLS-204","VLS-214","VLS-300","VLS-304","VLS-314","VLS-600","VRT-200","VRT-800","VRT-J00"]}},"Air":{"AIR":{"AIR CLEANER":["NIG 250"],"AIRTEMP":["HJK60Z","PV06Z","PV10Z"],"APC":["ACRD602"],"ATLAS":["PEC378FA","U30CA1","U80CHW"],"CANATAL":["ECU06","ECU08","MECU100"],"Carrier":["12,000BTU","18,000 BTU","36,000 BTU","38GT024R","38LB009SC","38LB015SC","38LB060SC","38RE024G2","38RE025SC5X","38RE04834","38RGE025S","38RGT030R","38TSR018-5E","40NVS036W-10FR","40QBY040X-10","40QBY048X","40QDU100X-11","40QDU120X-11","40QDU150X-11","40TSF0301UP","40VNS024W","40VNS036W","42CB010GDX3R","42CH016X3RO","42CMS016W","42TGF0601CP","42TGV0361CP","42TSGS018-703","42TSU018","42VFE012","42VFS012W","42VFS016W-10RR","42VLG008X110","42VLY012X-10SR","42VLY016X","42VSGS012W-10FR","42VSGS036W-10FR","42XQ012T","48,000 BTU","60,000 BTU","400,000BTU","78000BTU","CARRIER"],"CITEC":["CXD100","D21A","ECD25E","ECU25","ESD12AAS","ESD25AAS","ESD30A","ESD30AES","ESD35AAS","ESD40A","ESD45A","ESD45AES","ESD50A","ESD55A","ESD60A","ESD60ASS","ESD70A","ESD100A","ESU15A","EXD65AH","EXD80A","EZD1050A","GD20A","GD30A","GD30AH","GD35A","GD40A","GD45A","GD50AH"],"CITEC DENCO":["D37AH","DC66B2CWH","DC101B2CWH","DC120B2CWH","DC200B2CWH","DC240B2AH","DC240B2AH/2XDCRA32-6","DC240B2CWH","DC360CWH","DT12CWH","DT20CWH","U5AGH/DCRA 8-6","UC90B2CW2","UC90CW3"],"Climaveneta":["DAO-005","DAO-080"],"DAIKIN":["AFDR05NY1R1","AFVPR10NY1","AFVPR15NY1","AFVPR18NY1","AFVR10NV1","AHUR16DBL","FBA18BV2S","FCF13DV2S","FCF18CV2S","FCF30CV2S","FCF30DV2S","FCF42DV2S","FCFC24EV2S","FDF24BV2S","FH48NUV2S","FHC36NUV2S","FHC48NUV2S","FHFC36DV2S","FHFC42DV2S","FHFC48DV2S","FHNQ13NV2S","FHNQ30NV2S","FHNQ36NV2S","FTKD18GV2S","FVYCP450MR","FVYCP560MR","FXA32LV1S","FXA40LVE","FXAQ63AVMS","FXCQ63MVE9","FXF40LVE","FXF50LVE","FXF63LVE","FXF100LVE","FXF125LVE","FXFQ20MAVS","FXFQ32LV2S","FXFQ32MAVE","FXFQ40AVS","FXFQ40LV2S","FXFQ50AVS","FXFQ50LV2S","FXFQ80AVS","FXFQ80LV2S","FXFQ100AVS","FXFQ100LV2S","FXFQ125AVS","FXFQ125MVE","FXFQ125PAUS","FXHQ100MAVE","FXHQ100MAVS","FXLQ50MAVE","FXMQ63PAVS","FXMQ80PAVS","FXMQ80PVE","FXMQ125PAVS","FXMQ125PVE","FXMQ140PAVE","FXMQ140PAVS","FXMQ140PVE","FXMQ140PVES","FXMQ250MAVE","FXMQ250MVES","FXSQ50PAVS","FXVQ125MY1","FXVQ125NY1","FXVQ200NY1","FXVQ250MY1","FXVQ400NY1","FXVQ500NY1","FXZQ20MVES","RNQ18NV2S","RNQ48MY25","RZFC36DV2S","RZFC36DV25","RZFC42DV2S","RZFC48DV2S"],"DENCO":["D23AH","D28AVH","D28CWH","D32AVH","D37MAH","D42AH","D48AVH","D63AVH","D83AVH","D83CH","D103","D280AH","DC120B2AH","DC160B2CWH","DC240AH","DC240CWH","DC260AH","DC280B2CWH","DMA030D","DMA045D","DMA045U","DMA065","DMA065D","DMA092D","DUC050D","DUC100D","DUC200D","TD48AVH"],"EMERSON":["L99UA001","P2050FC2MS1R","P1300262"],"EUROKLIMAT":["EKCU51AH"],"Huawei":["NetCol8000"],"ISOLERT":["ISOLERT3"],"LIEBERT":["CM100","P1050 DA13C HS","P3080 FARMS 1R","P3080 UAS3F HL","P3100 DARMS 1R"],"MDV":["38000BTU"],"Multi-DENCO":["DMA092"],"RITTAL":["LCP3301,470"],"Schneider":["ACRD301P","HDCV2900A2","TDAV 0511A"],"SOCOMEC AIR":["D240AH","U240A"],"STULZ":["ASD261A","ASD301A","ASD430CW","ASD622A","ASD712A","ASD800CW","ASD852A","ASD872A","ASD1250CW","ASD 522A","ASD 872A","ASD-391A","ASU291A","ASU800CW","MRD381A/CW","MRD543A","MRD1383A","MRD 362A","MRD 2305A"],"TASAKI":["CHLE40B-AD2R","FWDE25I-AF1M","TAZAKI"],"TemperZone":["CWP0178RKTY"],"TRANE":["18,000BTU","36,000BTU","60,000BTU","BDCB 050 B01 L40","BDCB 050 B01 R40","BDHA32B01L00","BDHA34B01L00","BDHA34BO1ROO","BDHA40B01L00","BDHA60B01L00","BDHA 050 B01 L40","BDHA 050 B01 R40","BDVA 090A0D2R203A","CFB10COM1TOAA","CFB12COM1TOAA","CFEB10COM1TOAA","CFEB12COM1T0AA","CLCP006","HDHA40B01L00","HFCA08C001AA","HFCA 12E 001 AC","HFCA-04","HFCD10D001AD","HFCD20D001AD","MCD060DBP0BA","MCWE18TB5","MCX060EB","RTHDB2C2D2","TTH100BD00BA","TTK048QD00DA"],"UNI-AIRE":["WRV-18F"],"Uniflair":["TDAV1321","TDAV2522A","TDTV0611","TDTV1822","TDTV1822A","TDTV2242-A","TUCV2700","TUCV3400","TUCV4000"],"VERTIV":["CR025RA","P1030DA"],"X200":["SMS ALARM"],"YORK":["13000BTU","YCM-25","YCM-30","YCM-36","YIFFXC0408ANFA"]},"AIR VRF":{"HITACHI":["9,900BTU/HR","13,000BTU","20,000BTU","39,600BTU/HR","153,500BTU","7800BTU","RAS-180HNCELW","RCI-3.0FSKDNQ","RFPF12FNYTH","RPFC-2.5FSNQ"]},"ASCU":{"INFRA TECHNOLOG":["2 CHANNEL","3XA-R31"]},"Chiller":{"Carrier":["30RB039S-160S"]},"Dehumidifier":{"MD SYSTEM":["MDP-70L"]},"DCIM":{"DCIM":["NBRK0250"]},"Dry Contact":{"VUTLAN":["VT440"]},"EMS":{"PICOBOX":["MM2000"],"TCE":["X-200"],"VUTLAN":["VT335s"]},"FAN":{"Panasonic":["FAN-Panasonic"]},"Leak Detection":{"nVent RAYCHEM":["TraceTek TT-TS12"]},"Monitor":{"VUTLAN":["VT825","VT855i"]},"Oil Leak":{"ANVTECH":["A-DF/SM50/M","A-DF/SP"],"nVent RAYCHEM":["TTDM128","TTSIM-1A-230"]},"OTHER":{"CAREL":["PJEZSOHOOO"],"อื่นๆ":["Thermometer"]},"Pump Drain":{"WINMAX":["PF-6122BB-WT24","PF-30225B-WT2A"]},"SMS":{"INFRA":["J-1000"],"SMS":["X200"],"TCE":["X200","X200-16","X200-32"]},"SMS Alarm":{"Connect":["J1000 PLUS"]},"Tele Alarm":{"PICOBOX":["TELE ALARM SYSTEM"]},"Temperature Control":{"TEMP":["Temperature Control"]},"Ventilation":{"KRUGER":["BDB355CMCCW902","BDB355CMCCW903","BDB560CMCCW90W","BSB500UIMCW90Z","BSB560UIMCW90Z","FSA315CMCC90W","FSA355CC90W(M)DEL","TDA80V"]},"Water Leak":{"ANVTECH":["A-DP","A-PS","A-PS 12/24 VDC","A-SP","A-SP/DP"],"AQUALARM":["EM-1","LS2i","LS-2","LS-2i","LSP-12","LSP-12CD-X"],"CITEC":["C-LDM-16"],"ELSA":["3L-DP","3L-SP/DP"],"EMERSON":["LPL 2300"],"INFRA":["ALLTEC-AWLD"],"nVent RAYCHEM":["TTDM-128","TTSIM-1A-24VDC","TTSIM-2-24VDC (W)"],"RITTAL":["Rittal DK 7030.440"],"TTK":["FG-ALS4","FG-NET","FG-NET-F","FG-SYS","TTK"],"Water Sense":["LDI","LDI-IM"]},"WTP":{"Water Softener":["Softener ST-A1","Softener ST-A2"]},"CMC":{"RITTAL":["Rittal CMC III"]}}};
+const CATS=['UPS','F&S','Air'],PRODS={"UPS":["UPS","AIR","ATS","Battery","Central","Electrical","Generator","HDMI","MDB","PDU","Rack","Rack PDU","STS","Sync","Thermo Scan","UPM"],"F&S":["VESDA","ASD","FSCP","OFF GAS","ACCESS","BAS","BMS","CCTV","CO2","DCIM","Emergency Light","EMS","Exit Light","Fire","Fire Alarm","Fire Suppression","Fire System","FK-5-1-12","FM-200","Gas Detection","Mimic","Netbotz","Network","Nitrogen","Non CFC","NOVEC","OTHER","Pre-Action","PYROGEN","Remote","SMS","Software","TV"],"Air":["AIR","AIR VRF","ASCU","Chiller","CMC","DCIM","Dehumidifier","Dry Contact","EMS","FAN","Leak Detection","Monitor","Oil Leak","OTHER","Pump Drain","SMS","SMS Alarm","Tele Alarm","Temperature Control","Ventilation","Water Leak","WTP"]};
+const cats=()=>[...CATS,...S.cfg.cats.filter(c=>!CATS.includes(c))];
+const prods=c=>{const d=PRODS[c]||[],pr=S.cfg.prods||{},ex=[...(pr[c]||[]),...(c==='F&S'?(pr.Fire||[]):[])];return[...d,...ex.filter((x,i)=>!d.includes(x)&&ex.indexOf(x)===i)]};
+const inPm=i=>(i.f.pm||i.f.type)===S.pm&&(!i.f.cat||(i.f.cat==='Fire'?'F&S':(i.f.cat==='F&S'&&(i.f.pm||i.f.type)==='CMC')?'Air':i.f.cat)===S.cat);
 const dv=(f,k,d)=>f[k]??d;
 const DOCF=[['docno','หมายเลขเอกสาร','FM-FS-17'],['rev','แก้ไขครั้งที่','00'],['eff','วันที่บังคับใช้','01/02/67']];
 const thDate=d=>{if(!d)return'';const[y,m,dd]=d.split('-');return`${dd}/${m}/${+y+543}`};
 const getName=()=>{try{return localStorage.getItem('name')||''}catch(e){return''}};
 const SUP_PIN='1234'; // เปลี่ยนรหัสหัวหน้างานตรงนี้
-const S={askPin:false,isEd:false,db:null,assets:null,uid:null,name:'',sup:false,view:'home',pm:null,types:['VESDA','ASD','FSCP','OFF GAS'],custom:[],adding:false,pmName:'',cd:null,cur:null,own:false,all:null,err:'',filter:''};
+const S={askPin:false,isEd:false,db:null,assets:null,uid:null,name:'',sup:false,view:'home',pm:null,cat:null,cfg:{cats:[],prods:{}},opts:{},optNew:{},adding:false,pmName:'',cd:null,cur:null,own:false,all:null,err:'',filter:''};
 
 function shrink(file,max=1000){return new Promise(res=>{const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const k=Math.min(1,max/Math.max(i.width,i.height));const c=document.createElement('canvas');c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext('2d').drawImage(i,0,0,c.width,c.height);c.toBlob(b=>res(b),'image/jpeg',.72)};i.src=r.result};r.readAsDataURL(file)})}
 const newReport=()=>({id:uid_(),f:{date:new Date().toISOString().slice(0,10)},summary:'',advice:'',rows:[],status:'draft',updated:Date.now()});
@@ -105,10 +114,11 @@ const myItems=()=>(S.all&&S.all[S.uid]&&S.all[S.uid].items)||[];
 async function init(){
  try{
   const user=await claude.use('user'),me=await user.me();
-  S.uid=me.id;S.name=me.name||getName();S.isEd=me.canEdit||me.isOwner;{let m=null;try{m=localStorage.getItem('mode')}catch(e){}S.sup=m?m==='sup':S.isEd}
+  S.uid=me.id;S.name=me.name||getName();S.isEd=me.canEdit||me.isOwner;{let m=null;try{m=localStorage.getItem('mode')}catch(e){}S.sup=m?m==='sup':S.isEd}if(window.__FB&&!S.isEd)S.sup=false;
   S.db=await claude.use('db');S.assets=await claude.use('assets');
   if(!S.db||!S.uid){S.err='ต้องเปิดผ่าน claude.ai และเข้าสู่ระบบก่อนใช้งาน';return render()}
-  S.db.doc('config/types').onSnapshot(x=>{S.custom=x.exists?(x.data().list||[]):[];if(S.view==='home')render()},()=>{});
+  S.db.doc('config/options').onSnapshot(x=>{S.opts=(x.exists&&x.data().m)||{}},()=>{});
+  S.db.doc('config/types').onSnapshot(x=>{const v=x.exists?x.data():{};S.cfg={cats:v.cats||[],prods:v.prods||{}};if(S.view==='home'||S.view==='cat')render()},()=>{});
   sub();
  }catch(e){S.err='เริ่มระบบไม่สำเร็จ'}
  render();
@@ -126,39 +136,58 @@ function sub(){
 function setMode(sup){S.sup=sup;S.askPin=false;try{localStorage.setItem('mode',sup?'sup':'user')}catch(e){}sub()}
 function render(){
  const y=window.scrollY,a=$('#app');
- $('#top').style.display=S.view==='home'?'none':'';
+ $('#top').style.display=S.view==='home'||S.view==='cat'?'none':'';
  document.querySelectorAll('#tg button').forEach(b=>b.classList.toggle('on',b.dataset.th===document.documentElement.dataset.theme));
  $('#who').textContent=S.err?'':(S.name||'ยังไม่ระบุชื่อ')+' · '+(S.sup?'หัวหน้างาน':'ผู้ใช้งาน');
- a.innerHTML=S.err?`<div class="card">${esc(S.err)}</div>`:S.view==='home'?home():S.view==='form'?form():S.view==='preview'?preview():list();
+ a.innerHTML=S.err?`<div class="card">${esc(S.err)}</div>`:S.view==='home'?home():S.view==='cat'?catPage():S.view==='form'?form():S.view==='preview'?preview():list();
  window.scrollTo(0,y);
 }
 
+function addUI(){
+ return S.adding?`<div style="display:flex;gap:6px;width:100%"><input id="pn" placeholder="ชื่อหัวข้อ" value="${esc(S.pmName)}"><button class="pri" data-a="savepm">เพิ่ม</button><button data-a="cancelpm">ยกเลิก</button></div>`:'<button class="add" data-a="addpm">+ เพิ่มหัวข้อ</button>'}
+function optKey(k){return(S.cur.f.pm||S.pm)+'|'+k}
+function optDefaults(k){
+ const d=((CAT[S.cur.f.cat||S.cat]||{})[S.cur.f.pm||S.pm])||{};
+ if(k==='product')return Object.keys(d);
+ const p=S.cur.f.product;if(p&&d[p])return d[p];
+ const all=[];Object.values(d).forEach(a=>a.forEach(x=>{if(!all.includes(x))all.push(x)}));return all}
+function optCustom(k){const dd=optDefaults(k);return(S.opts[optKey(k)]||[]).filter(x=>!dd.includes(x))}
+function optField(k,l){
+ const d=optDefaults(k),cu=optCustom(k),all=[...d,...cu],v=S.cur.f[k]||'',o=v&&!all.includes(v)?[...all,v]:all;
+ return`<label>${l}</label><select data-opt="${k}"><option value="">— เลือก —</option>${o.map(x=>`<option value="${esc(x)}" ${x===v?'selected':''}>${esc(x)}</option>`).join('')}</select>
+<div style="display:flex;gap:6px;margin-top:6px"><input data-addv="${k}" placeholder="เพิ่มตัวเลือกใหม่" value="${esc(S.optNew[k]||'')}"><button data-a="addopt" data-k="${k}" style="flex:none">เพิ่ม</button></div>
+${cu.length?`<div class="chips">${cu.map(x=>`<span class="chip2">${esc(x)}<button data-a="rmopt" data-k="${k}" data-v="${esc(x)}" aria-label="ลบ">✕</button></span>`).join('')}</div>`:''}`}
+function tile(act,t,removable){const tp=DESC[t]?` class="tip" data-tip="${esc(DESC[t])}"`:'';return`<button data-a="${act}" data-t="${esc(t)}"${tp}>${esc(t)}</button>`+(S.sup&&removable?`<button class="x dg" data-a="rmpm" data-t="${esc(t)}">✕</button>`:'')}
 function home(){
- const ty=t=>`<button data-a="pm" data-t="${esc(t)}">${esc(t)}</button>`;
  return`<div class="hm"><img src="${LOGO}" alt="CSPM"><h1><span style="display:inline-block">ใบสรุปผลการปฏิบัติงาน/</span><span style="display:inline-block">ข้อเสนอแนะ</span></h1><hr>
-<div class="seg2"><button data-a="mode" data-v="user" class="${S.sup?'':'on'}">ผู้ใช้งาน</button><button data-a="mode" data-v="sup" class="${S.sup?'on':''}">หัวหน้างาน</button></div>
+${(!window.__FB||S.isEd)?`<div class="seg2"><button data-a="mode" data-v="user" class="${S.sup?'':'on'}">ผู้ใช้งาน</button><button data-a="mode" data-v="sup" class="${S.sup?'on':''}">หัวหน้างาน</button></div>`:''}
 ${S.askPin?`<div style="display:flex;gap:6px;width:min(100%,320px)"><input id="pin" type="password" inputmode="numeric" placeholder="รหัสหัวหน้างาน"><button class="pri" data-a="pin">ยืนยัน</button></div>`:''}
-<div class="pms">${S.types.map(ty).join('')}${S.custom.map(t=>ty(t)+(S.sup?`<button class="x dg" data-a="rmpm" data-t="${esc(t)}">✕</button>`:'')).join('')}
-${S.sup?(S.adding?`<div style="display:flex;gap:6px;width:100%"><input id="pn" placeholder="ชื่อหัวข้อ" value="${esc(S.pmName)}"><button class="pri" data-a="savepm">เพิ่ม</button><button data-a="cancelpm">ยกเลิก</button></div>`:'<button class="add" data-a="addpm">+ เพิ่มหัวข้อ</button>'):''}</div></div>`}
+<div class="pms">${cats().map(c=>tile('cat',c,!CATS.includes(c))).join('')}${addUI()}</div></div>`}
+function catPage(){
+ const l=prods(S.cat);
+ return`<div class="hm"><img src="${LOGO}" alt="CSPM"><h1>${esc(S.cat)}</h1><hr>
+<div class="pms${l.length>10?' many':''}">${l.map(p=>tile('pm',p,!(PRODS[S.cat]||[]).includes(p))).join('')}${l.length?'':'<div class="mut" style="width:100%">ยังไม่มีหัวข้อในหมวดนี้</div>'}${addUI()}</div>
+<button data-a="home">← หน้าแรก</button></div>`}
 function list(){
  if(!S.all)return'<div class="card mut">กำลังโหลดข้อมูล…</div>';
  const nameBox=S.name?'':`<div class="card"><h2>ชื่อของคุณ</h2><input id="nm" placeholder="ชื่อ-นามสกุล"><div class="row"><button class="pri" data-a="setname">บันทึกชื่อ</button></div></div>`;
- const own=[...myItems()].filter(i=>(i.f.pm||i.f.type)===S.pm).sort((a,b)=>b.updated-a.updated);
+ const own=[...myItems()].filter(inPm).sort((a,b)=>b.updated-a.updated);
  const row=(it,uid,nm)=>`<div class="item"><div><b>${esc(it.f.customer||'(ไม่มีชื่อลูกค้า)')}</b> <span class="chip ${it.status==='sent'?'ok':''}">${it.status==='sent'?'ส่งแล้ว':'แบบร่าง'}</span><div class="mut">${esc(it.f.job||'')} ${thDate(it.f.date)}${nm?' · '+esc(nm):''}</div></div><div style="display:flex;gap:6px"><button data-a="open" data-u="${uid}" data-id="${it.id}">เปิด</button>${uid===S.uid?`<button class="dg" data-a="del" data-id="${it.id}">${S.cd===it.id?'ยืนยันลบ':'ลบ'}</button>`:''}</div></div>`;
- let h=nameBox+`<div class="row" style="margin:0 0 12px"><button data-a="home">← หน้าแรก</button><button class="pri" data-a="new">+ รายงานใหม่</button></div>
+ let h=nameBox+`<div class="row" style="margin:0 0 12px"><button data-a="cat">← ${esc(S.cat)}</button><button class="pri" data-a="new">+ รายงานใหม่</button></div>
  <div class="card"><h2>${esc(S.pm)} · รายงานของฉัน (${own.length})</h2>${own.map(i=>row(i,S.uid,'')).join('')||'<div class="mut">ยังไม่มีรายงาน</div>'}</div>`;
  if(S.sup){
-  const people=Object.entries(S.all).filter(([u])=>u!==S.uid&&(S.all[u].items||[]).some(i=>(i.f.pm||i.f.type)===S.pm));
+  const people=Object.entries(S.all).filter(([u])=>u!==S.uid&&(S.all[u].items||[]).some(inPm));
   h+=`<div class="card"><h2>รายงานของผู้ใช้งานทุกคน</h2><select data-a="filter"><option value="">ทุกคน</option>${people.map(([u,d])=>`<option value="${u}" ${S.filter===u?'selected':''}>${esc(d.name||'(ไม่ระบุชื่อ)')}</option>`).join('')}</select>
-  <div style="margin-top:6px">${people.filter(([u])=>!S.filter||S.filter===u).flatMap(([u,d])=>d.items.filter(i=>(i.f.pm||i.f.type)===S.pm).map(i=>({i,u,n:d.name}))).sort((a,b)=>b.i.updated-a.i.updated).map(x=>row(x.i,x.u,x.n)).join('')||'<div class="mut">ยังไม่มีรายงาน</div>'}</div></div>`;
+  <div style="margin-top:6px">${people.filter(([u])=>!S.filter||S.filter===u).flatMap(([u,d])=>d.items.filter(inPm).map(i=>({i,u,n:d.name}))).sort((a,b)=>b.i.updated-a.i.updated).map(x=>row(x.i,x.u,x.n)).join('')||'<div class="mut">ยังไม่มีรายงาน</div>'}</div></div>`;
  }
  return h;
 }
 
 function form(){
  const c=S.cur,f=c.f;
- return`<div class="card"><h2>ข้อมูลเอกสาร</h2>${DOCF.map(([k,l,d])=>`<label>${l}</label><input data-f="${k}" value="${esc(dv(f,k,d))}">`).join('')}</div>
-<div class="card"><h2>ข้อมูลงาน</h2>${FIELDS.map(([k,l,t])=>`<label>${l}</label><input data-f="${k}" type="${t||'text'}" value="${esc(f[k])}">`).join('')}</div>
+ return`<div class="row" style="margin:0 0 12px"><button data-a="back">← กลับ</button><button data-a="save">บันทึกแบบร่าง</button><button class="pri" data-a="preview">ดูตัวอย่าง</button></div>
+<div class="card"><h2>ข้อมูลเอกสาร</h2>${DOCF.map(([k,l,d])=>`<label>${l}</label><input data-f="${k}" value="${esc(dv(f,k,d))}">`).join('')}</div>
+<div class="card"><h2>ข้อมูลงาน</h2>${FIELDS.map(([k,l,t])=>(k==='product'||k==='model')?optField(k,l):`<label>${l}</label><input data-f="${k}" type="${t||'text'}" value="${esc(f[k])}">`).join('')}</div>
 <div class="card"><h2>สรุปผลการตรวจสอบ</h2><textarea data-k="summary">${esc(c.summary)}</textarea></div>
 <div class="card"><h2>คำแนะนำเพิ่มเติมหรือข้อเสนอแนะ (ถ้ามี)</h2><textarea data-k="advice">${esc(c.advice)}</textarea></div>
 <div class="card"><h2>รูปภาพประกอบการปฏิบัติงาน</h2>
@@ -270,7 +299,7 @@ async function makePdf(){
 }
 async function exportDoc(kind){
  if(S.busy)return;S.busy=true;toast('กำลังสร้างไฟล์…');
- try{kind==='pdf'?await makePdf():await makeWord()}catch(e){console.error(e);toast('สร้างไฟล์ไม่สำเร็จ')}
+ try{if(window.__PHWAIT)await window.__PHWAIT(S.cur.rows.map(x=>x.id));kind==='pdf'?await makePdf():await makeWord()}catch(e){console.error(e);toast('สร้างไฟล์ไม่สำเร็จ')}
  S.busy=false;
 }
 document.addEventListener('click',async e=>{
@@ -278,11 +307,17 @@ document.addEventListener('click',async e=>{
  if(th){document.documentElement.dataset.theme=th.dataset.th;try{localStorage.setItem('theme',th.dataset.th)}catch(x){}return render()}
  const b=e.target.closest('[data-a]');if(!b||b.tagName==='SELECT')return;const a=b.dataset.a,d=b.dataset;
  if(a==='setname'){const n=$('#nm').value.trim();if(!n)return;S.name=n;try{localStorage.setItem('name',n)}catch(x){}}
- else if(a==='new'){if(!S.name)return toast('กรุณาใส่ชื่อก่อน');S.cur=newReport();S.cur.f.pm=S.pm;S.cur.f.system=S.pm;S.own=true;S.view='form'}
+ else if(a==='new'){if(!S.name)return toast('กรุณาใส่ชื่อก่อน');S.cur=newReport();S.cur.f.pm=S.pm;S.cur.f.cat=S.cat;S.cur.f.system=S.pm;S.own=true;S.view='form'}
  else if(a==='open'){const it=((S.all[d.u]||{}).items||[]).find(x=>x.id===d.id);S.cur=JSON.parse(JSON.stringify(it));S.own=d.u===S.uid;S.view=S.own?'form':'preview';window.scrollTo(0,0)}
  else if(a==='del'){if(S.cd!==d.id){S.cd=d.id;return render()}S.cd=null;const items=myItems().filter(x=>x.id!==d.id);try{await S.db.doc('reports/'+S.uid).set({name:S.name,items});S.all={...S.all,[S.uid]:{name:S.name,items}}}catch(x){toast('ลบไม่สำเร็จ')}}
  else if(a==='back'){S.view='list'}
- else if(a==='home'){S.view='home'}
+ else if(a==='home'){S.view='home';S.adding=false;S.pmName=''}
+ else if(a==='addopt'||a==='rmopt'){
+  const key=optKey(d.k),m=JSON.parse(JSON.stringify(S.opts));m[key]=m[key]||[];
+  if(a==='addopt'){const v=(S.optNew[d.k]||'').trim();if(!v)return;if(!optDefaults(d.k).includes(v)&&!m[key].includes(v))m[key].push(v);S.cur.f[d.k]=v;S.optNew[d.k]=''}
+  else{m[key]=m[key].filter(x=>x!==d.v);if(S.cur.f[d.k]===d.v)S.cur.f[d.k]=''}
+  try{await S.db.doc('config/options').set({m});S.opts=m}catch(x){toast('บันทึกไม่สำเร็จ')}}
+ else if(a==='cat'){if(d.t)S.cat=d.t;S.view='cat';S.adding=false;S.pmName='';window.scrollTo(0,0)}
  else if(a==='mode'){if(d.v==='user')setMode(false);else if(S.isEd)setMode(true);else S.askPin=!S.sup}
  else if(a==='pin'){if(($('#pin').value||'')!==SUP_PIN)return toast('รหัสไม่ถูกต้อง');setMode(true)}
  else if(a==='pm'){S.pm=d.t;S.view='list';window.scrollTo(0,0)}
@@ -290,8 +325,10 @@ document.addEventListener('click',async e=>{
  else if(a==='cancelpm'){S.adding=false;S.pmName=''}
  else if(a==='savepm'||a==='rmpm'){
   const n=(a==='savepm'?S.pmName:d.t).trim();if(!n)return;
-  const list=a==='savepm'?(S.types.includes(n)||S.custom.includes(n)?S.custom:[...S.custom,n]):S.custom.filter(x=>x!==n);
-  try{await S.db.doc('config/types').set({list});S.custom=list;S.adding=false;S.pmName=''}catch(x){toast('บันทึกไม่สำเร็จ (ต้องเป็นหัวหน้างาน)')}}
+  const cfg=JSON.parse(JSON.stringify(S.cfg));cfg.prods=cfg.prods||{};const sv=a==='savepm';
+  if(S.view==='home'){const l=cfg.cats;cfg.cats=sv?(cats().includes(n)?l:[...l,n]):l.filter(x=>x!==n)}
+  else{if(S.cat==='F&S'&&cfg.prods.Fire){const t=cfg.prods['F&S']||[];cfg.prods['F&S']=[...t,...cfg.prods.Fire.filter(x=>!t.includes(x))];delete cfg.prods.Fire}const l=cfg.prods[S.cat]||[];cfg.prods[S.cat]=sv?(prods(S.cat).includes(n)?l:[...l,n]):l.filter(x=>x!==n)}
+  try{await S.db.doc('config/types').set(cfg);S.cfg=cfg;S.adding=false;S.pmName=''}catch(x){toast('บันทึกไม่สำเร็จ')}}
  else if(a==='edit'){S.view='form'}
  else if(a==='preview'){S.view='preview';window.scrollTo(0,0)}
  else if(a==='delrow'){S.cur.rows.splice(+d.i,1)}
@@ -301,9 +338,10 @@ document.addEventListener('click',async e=>{
  render();
 });
 document.addEventListener('input',e=>{const t=e.target,d=t.dataset;
- if(d.f)S.cur.f[d.f]=t.value;else if(d.k)S.cur[d.k]=t.value;else if(d.cap)S.cur.rows[+d.cap].cap=t.value;else if(t.id==='pn')S.pmName=t.value});
+ if(d.f)S.cur.f[d.f]=t.value;else if(d.k)S.cur[d.k]=t.value;else if(d.cap)S.cur.rows[+d.cap].cap=t.value;else if(t.id==='pn')S.pmName=t.value;else if(d.addv)S.optNew[d.addv]=t.value});
 document.addEventListener('change',async e=>{const t=e.target,d=t.dataset;
  if(d.a==='filter'){S.filter=t.value;render()}
+ else if(d.opt){S.cur.f[d.opt]=t.value;if(d.opt==='product')render()}
  else if(d.file&&t.files.length){
   if(!S.assets){toast('บัญชีนี้ยังอัปโหลดรูปไม่ได้ (ต้องเป็น Contributor ขึ้นไป)');return}
   toast('กำลังอัปโหลดรูป…');
